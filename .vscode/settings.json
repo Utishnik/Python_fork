@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "python.h": "c",
+        "pymem.h": "c",
+        "pycore_typeobject.h": "c",
+        "pycore_code.h": "c"
+    }
+}
