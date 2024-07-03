@@ -124,7 +124,7 @@ PyBytes_FromStringAndSize(const char *str, Py_ssize_t size)
         return NULL;
     }
     if (size == 1 && str != NULL) {
-        op = CHARACTER(*str & 255);
+         op = CHARACTER(*str & 255);
         return Py_NewRef(op);
     }
     if (!size) {

@@ -9750,6 +9750,7 @@ star_pattern_rule(Parser *p)
 static pattern_ty
 mapping_pattern_rule(Parser *p)
 {
+    printf("%d",p->starting_lineno);//dbg
     if (p->level++ == MAXSTACK) {
         _Pypegen_stack_overflow(p);
     }
@@ -9835,7 +9836,7 @@ mapping_pattern_rule(Parser *p)
             UNUSED(_end_lineno); // Only used by EXTRA macro
             int _end_col_offset = _token->end_col_offset;
             UNUSED(_end_col_offset); // Only used by EXTRA macro
-            _res = _PyAST_MatchMapping ( NULL , NULL , rest -> v . Name . id , EXTRA );
+            _res = _PyAST_MatchMapping ( NULL , NULL , rest->v . Name.id , EXTRA );
             if (_res == NULL && PyErr_Occurred()) {
                 p->error_indicator = 1;
                 p->level--;
@@ -14339,7 +14340,7 @@ primary_raw(Parser *p)
 static expr_ty 
 c_for_parse(Parser *p)
 {
-    
+    pattern_ty pt = mapping_pattern_rule(p);
 }
 
 // slices: slice !',' | ','.(slice | starred_expression)+ ','?
@@ -40518,7 +40519,7 @@ _tmp_256_rule(Parser *p)
 
 // _tmp_257: fstring | string
 static void *
-_tmp_257_rule(Parser *p)
+_tmp_257_rule(Parser *p) //room 34
 {
     if (p->level++ == MAXSTACK) {
         _Pypegen_stack_overflow(p);
